@@ -7,18 +7,13 @@ const UseFetch = (url: string, options: RequestInit = {}) => {
 
   React.useEffect(() => {
     if (!url) return;
-
     const controller = new AbortController();
 
     const loadUserData = async () => {
       setLoading(true);
-      setError("");
 
       try {
-        const res = await fetch(url, {
-          ...options,
-          signal: controller.signal,
-        });
+        const res = await fetch(url, { ...options, signal: controller.signal });
 
         if (!res.ok) {
           throw new Error(`HTTP Error! status: ${res.status}`);
@@ -26,11 +21,12 @@ const UseFetch = (url: string, options: RequestInit = {}) => {
 
         const result = await res.json();
         setData(result);
-      } catch (err: unknown) {
+      } catch (err) {
         if (err instanceof Error) {
           if (err.name === "AbortError") {
             return;
           }
+
           setError(err.message);
         } else {
           setError("Ein unbekannter Fehler ist aufgetreten!");
@@ -44,7 +40,7 @@ const UseFetch = (url: string, options: RequestInit = {}) => {
 
     loadUserData();
 
-    return () => controller.abort();
+    return () => controller.abort;
   }, [url, JSON.stringify(options)]);
 
   return { data, loading, error };

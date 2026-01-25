@@ -2,7 +2,7 @@ import * as React from "react";
 import UseFetch from "./useFetch";
 
 const User = () => {
-  const { data: user, loading, error } = UseFetch(`https://jsonplaceholder.typicode.com/users/${2}`);
+  const { data: user, loading, error } = UseFetch(`https://jsonplaceholder.typicode.com/users/${3}`, { cache: "no-store" });
 
   //   Loading State
   if (loading) return <div>Loading...</div>;
