@@ -1,12 +1,18 @@
-import { useState } from "react";
 import "./App.css";
-import User from "./components/APIFetch/user";
+import { useLocalStorage } from "./cutom-hooks/useLocalStorage";
 
 function App() {
+  const [theme, setTheme] = useLocalStorage<"light" | "dark">("app-theme", "light");
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   return (
-    <>
-      <User />
-    </>
+    <div>
+      <h1>Aktuelles Theme: {theme}</h1>
+      <button onClick={toggleTheme}>Theme wechseln</button>
+    </div>
   );
 }
 
