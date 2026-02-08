@@ -1,5 +1,6 @@
 import "./App.css";
 import Debounced from "./components/Debounced/Debounced";
+import Sortierung from "./components/Sortierung/Sortierung";
 import { useLocalStorage } from "./cutom-hooks/useLocalStorage";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       {/* <h1>Aktuelles Theme: {theme}</h1>
       <button onClick={toggleTheme}>Theme wechseln</button> */}
 
-      <Debounced />
+      <Sortierung />
     </div>
   );
 }
