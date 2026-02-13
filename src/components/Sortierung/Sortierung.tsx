@@ -2,7 +2,7 @@ import * as React from "react";
 import { users } from "../../services/users";
 import type { User } from "../../types/user";
 import { TiArrowUnsorted, TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
-import List from "../common/List";
+import { List } from "../common/List";
 
 type SortConfig = {
   key: keyof User;
@@ -53,13 +53,6 @@ const Sortierung = () => {
     <table className="table">
       <thead>
         <tr>
-          {/* {columns.map((col) => (
-            <th key={col.key} onClick={() => requestSort(col.key)}>
-              {col.label}
-              {sortConfig?.key === col.key ? sortConfig.direction === "asc" ? <TiArrowSortedUp /> : <TiArrowSortedDown /> : <TiArrowUnsorted />}
-            </th>
-          ))} */}
-
           <List
             items={columns}
             keyExtractor={(col) => col.id}
