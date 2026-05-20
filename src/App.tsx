@@ -15,7 +15,8 @@ function App() {
       {/* <h1>Aktuelles Theme: {theme}</h1>
       <button onClick={toggleTheme}>Theme wechseln</button> */}
 
-      <Sortierung />
+      {/* <Sortierung /> */}
+      <Debounced />
     </div>
   );
 }
