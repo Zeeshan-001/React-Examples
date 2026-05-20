@@ -3,13 +3,13 @@ import { countries } from "./../../services/countries";
 import useDebounce from "../../cutom-hooks/useDebounce";
 
 const Debounced = () => {
-  const [input, setInput] = React.useState<string>("");
-  const debouncedInput = useDebounce(input.toLowerCase().trim(), 1000);
+  const [input, setInput] = React.useState("");
+  const query = useDebounce(input, 1000);
 
   const filteredCountries = React.useMemo(() => {
-    if (!debouncedInput) return countries;
-    return countries.filter((con) => con.toLowerCase().startsWith(debouncedInput));
-  }, [debouncedInput]);
+    if (!query) return countries;
+    return countries.filter((con) => con.toLowerCase().startsWith(query));
+  }, [query]);
 
   return (
     <>

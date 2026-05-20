@@ -1,14 +1,19 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 
-export const useDebounce = <T>(value: T, delay: number): T => {
-  const [debouncedValue, setDebouncedValue] = React.useState<T>(value);
+const useDebounce = (input: string, delay: number) => {
+  const [query, setQuery] = useState<string>(typeof input === "string" ? input.toLowerCase().trim() : input);
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => setDebouncedValue(value), delay);
-    return () => clearTimeout(timer);
-  }, [value, delay]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setQuery(input);
+    }, delay);
 
-  return debouncedValue;
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [input, delay]);
+
+  return query;
 };
 
 export default useDebounce;
