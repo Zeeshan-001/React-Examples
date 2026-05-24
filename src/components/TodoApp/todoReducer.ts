@@ -6,7 +6,7 @@ export function useToDoReducer(state: ItemType[], action: ItemActions): ItemType
     case "ADD_ITEM":
       return [...state, { id: crypto.randomUUID() as ItemType["id"], text: action.payload.trim(), completed: false }];
     case "DELETE_ITEM":
-      return;
+      return state.filter((item) => item.id !== action.payload);
     default:
       return state;
   }

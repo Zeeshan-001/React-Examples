@@ -7,13 +7,18 @@ const TodoApp = () => {
   const [todoState, todoDispatch] = useReducer(useToDoReducer, ITEMS);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleItemAdd = () => {
+  const handleItemAdd = (): void => {
     const input = inputRef.current;
     if (!input) return;
 
     const val = input.value.trim();
     todoDispatch({ type: "ADD_ITEM", payload: val });
     input.value = "";
+  };
+
+  const handleDeleteItem = (itemID: string): void => {
+    todoDispatch({ type: "DELETE_ITEM", payload: itemID });
+    console.log(todoState);
   };
 
   return (
@@ -50,7 +55,7 @@ const TodoApp = () => {
                 <input type="checkbox" className="task-checkbox" />
                 <span className="task-text task-text-completed">{item.text}</span>
               </label>
-              <button type="button" className="delete-btn">
+              <button type="button" className="delete-btn" onClick={() => handleDeleteItem(item.id)}>
                 Delete
               </button>
             </li>
