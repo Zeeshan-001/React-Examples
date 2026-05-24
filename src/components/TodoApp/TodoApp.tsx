@@ -6,8 +6,9 @@ import { useReducer, useRef } from "react";
 const TodoApp = () => {
   const [todoState, todoDispatch] = useReducer(useToDoReducer, ITEMS);
   const inputRef = useRef<HTMLInputElement>(null);
+  const checkboxRef = useRef<HTMLInputElement>(null);
 
-  const handleItemAdd = (): void => {
+  const handleIAddItem = (): void => {
     const input = inputRef.current;
     if (!input) return;
 
@@ -18,7 +19,14 @@ const TodoApp = () => {
 
   const handleDeleteItem = (itemID: string): void => {
     todoDispatch({ type: "DELETE_ITEM", payload: itemID });
-    console.log(todoState);
+  };
+
+  const handleToggleItem = (itemID: string): void => {
+    const checkbox = checkboxRef.current;
+    if (!checkbox) return;
+
+    const isCompleted = checkbox.checked;
+    todoDispatch({ type: "TOGGLE_ITEM", payload: { isCompleted, itemID } });
   };
 
   return (
@@ -29,7 +37,7 @@ const TodoApp = () => {
         {/* Add Task Form */}
         <div className="todo-form">
           <input type="text" className="todo-input" placeholder="Add a new task..." aria-label="New task input" ref={inputRef} />
-          <button type="button" className="add-btn" onClick={handleItemAdd}>
+          <button type="button" className="add-btn" onClick={handleIAddItem}>
             Add
           </button>
         </div>
@@ -50,10 +58,10 @@ const TodoApp = () => {
         {/* Static Task List Layout */}
         <ul className="task-list">
           {todoState.map((item: ItemType) => (
-            <li key={item.id} className="task-item active-border completed-border">
+            <li key={item.id} className={`task-item active-border ${item.completed && "completed-border"}`}>
               <label className="task-content">
-                <input type="checkbox" className="task-checkbox" />
-                <span className="task-text task-text-completed">{item.text}</span>
+                <input type="checkbox" className="task-checkbox" ref={checkboxRef} onChange={() => handleToggleItem(item.id)} />
+                <span className={`task-text ${item.completed && "task-text-completed"}`}>{item.text}</span>
               </label>
               <button type="button" className="delete-btn" onClick={() => handleDeleteItem(item.id)}>
                 Delete
