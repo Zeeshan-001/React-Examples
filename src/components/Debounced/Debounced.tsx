@@ -32,6 +32,4 @@ const Debounced = () => {
     </>
   );
 };
-// commit 1
-// commit 2
 export default Debounced;
