@@ -1,6 +1,12 @@
-import type { ItemType } from "./modal/items";
+import type { ItemType } from "../modal/items";
 
-type ItemActions = { type: "ADD_ITEM"; payload: string } | { type: "DELETE_ITEM"; payload: string } | { type: "TOGGLE_ITEM"; payload: { isCompleted: boolean; itemID: string } };
+export type Filter_Type = "all" | "active" | "completed";
+export type ItemActions =
+  | { type: "ADD_ITEM"; payload: string }
+  | { type: "DELETE_ITEM"; payload: string }
+  | { type: "TOGGLE_ITEM"; payload: { isCompleted: boolean; itemID: string } }
+  | { type: "FILTER_ITEM"; payload: Filter_Type };
+
 export function useToDoReducer(state: ItemType[], action: ItemActions): ItemType[] {
   switch (action.type) {
     case "ADD_ITEM":
