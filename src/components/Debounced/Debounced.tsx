@@ -32,5 +32,4 @@ const Debounced = () => {
     </>
   );
 };
-
 export default Debounced;

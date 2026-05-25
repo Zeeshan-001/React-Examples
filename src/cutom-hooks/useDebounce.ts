@@ -16,7 +16,4 @@ const useDebounce = (input: string, delay: number) => {
   return query;
 };
 
-// commit 1
-// commit 2
-// commit 3
 export default useDebounce;
