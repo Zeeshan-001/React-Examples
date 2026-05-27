@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div>
-      {/* <h1>Aktuelles Theme: {theme}</h1>
-      <button onClick={toggleTheme}>Theme wechseln</button> */}
+      <h1>Aktuelles Theme: {theme}</h1>
+      <button onClick={toggleTheme}>Theme wechseln</button>
 
       {/* <Sortierung /> */}
       <TodoApp />
