@@ -1,5 +1,4 @@
 import "./App.css";
-import TodoApp from "./components/TodoApp/TodoApp";
 import { useLocalStorage } from "./cutom-hooks/useLocalStorage";
 
 function App() {
