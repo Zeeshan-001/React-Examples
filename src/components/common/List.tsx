@@ -8,7 +8,7 @@ type ListProps<T> = {
   items: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
   keyExtractor?: (item: T, index: number) => string | number;
-  emptyComponent: React.ReactNode;
+  emptyComponent?: React.ReactNode;
 };
 
 export function List<T extends Identifiable>({ items, renderItem, keyExtractor, emptyComponent }: ListProps<T>) {

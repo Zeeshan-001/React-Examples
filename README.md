@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 Need Commit
 
@@ -73,3 +74,8 @@ export default defineConfig([
 ])
 
 Bug gefixt
+=======
+commtit One
+Commit Two 
+Commit Three
+>>>>>>> d997dc0d9460ee686ef7831ab66446616fe006d4
