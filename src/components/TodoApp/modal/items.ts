@@ -3,8 +3,11 @@ export const ITEMS: ItemType[] = [
   { id: crypto.randomUUID() as ItemType["id"], text: "Buy groceries for dinner", completed: false },
   { id: crypto.randomUUID() as ItemType["id"], text: "Finish CSS layout structure", completed: false },
 ] as const;
+<<<<<<< HEAD
 
 // Commit - 01
 // commit -02
 // commit - 03
 // commit - 04
+=======
+>>>>>>> parent of bb2e02a (commit 01)
