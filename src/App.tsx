@@ -19,5 +19,5 @@ function App() {
     </div>
   );
 }
-// commit - 1
+
 export default App;
