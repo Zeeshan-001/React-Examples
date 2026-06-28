@@ -7,6 +7,7 @@ import { useTodoActions } from "./hooks/useTodoActions";
 const TodoApp = () => {
   const [todoState, todoDispatch] = useReducer(useToDoReducer, ITEMS);
   const { handleIAddItem, handleDeleteItem, handleToggleItem, inputRef, checkboxRef, selectedFilter, filteredItems, setSelectedFilter } = useTodoActions(todoState, todoDispatch);
+  throw new Error("Hier is BUG");
   return (
     <div className="body-wrapper">
       <div className="todo-container">
