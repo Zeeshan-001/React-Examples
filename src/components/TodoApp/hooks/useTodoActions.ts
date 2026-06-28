@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
-import type { Filter_Type, ItemActions } from "../reducer/todoReducer";
+import type { ItemActions } from "../reducer/todoReducer";
 import type { ItemType } from "../modal/items";
-import { useLocalStorage } from "../../../cutom-hooks/useLocalStorage_O";
+import { useLocalStorage } from "../../../cutom-hooks/useLocalStorage";
 
 export function useTodoActions(items: ItemType[], todoDispatch: React.Dispatch<ItemActions>) {
   const inputRef = useRef<HTMLInputElement>(null);
