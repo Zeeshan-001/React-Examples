@@ -17,7 +17,6 @@ function App() {
       {/* <Sortierung /> */}
       <TodoApp />
       {/* commit Six */}
-      {/* commit Seven */}
     </div>
   );
 }
